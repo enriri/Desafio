@@ -1,0 +1,26 @@
+<div style="height: 10px"></div>
+<h2 class="container" >Consulta</h2>
+<div id="grid" class="container bg-light">
+    <div class="row">
+      <div class="col-sm">
+       ID
+      </div>
+      <div class="col-sm">
+        Nome
+      </div>
+      <div class="col-sm">
+        Idade
+      </div>      
+    </div>
+    <div class="row" *ngFor="let user of usuario">
+        <div class="col-sm">
+         {{user.id}}
+        </div>
+        <div class="col-sm">
+          {{user.nome}}
+        </div>
+        <div class="col-sm">
+          {{user.idade}}
+        </div> 
+    </div>
+</div>
