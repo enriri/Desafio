@@ -18,11 +18,9 @@ export class LoginComponent implements OnInit {
   
 
 
-  constructor(private _usuarioService: UsuarioService, private router: Router, private usuario: UsuarioService) {   }
+  constructor(private _usuarioService: UsuarioService, private router: Router) {   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {  }
 
   onSubmit(){    
     
@@ -31,12 +29,12 @@ export class LoginComponent implements OnInit {
     let usuarioService = this._usuarioService.getUsuario();
     
     
-if( usuarioService.find(x => x.id == LoginForm.id) && usuarioService.find(x => x.senha == LoginForm.senha)){
-    this.router.navigate(['../Consulta']);
-    
-    console.log("OK");
+  if( usuarioService.find(x => x.id == LoginForm.id) && usuarioService.find(x => x.senha == LoginForm.senha)){
+      this.router.navigate(['../Consulta']);
+      this._usuarioService.setCadastrar(LoginForm.id,LoginForm.nome,LoginForm.email,LoginForm.idade,LoginForm.senha);
+      console.log("OK");
 
-  }else{
+    }else{
       console.log((this._usuarioService.getUsuario()));
       return alert('Erro');
     }

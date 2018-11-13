@@ -14,6 +14,7 @@ export class ConsultaComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this._usuarioService.getUsuario();
+    console.log(this._usuarioService.getUsuario());
   }
-
+  
 }
