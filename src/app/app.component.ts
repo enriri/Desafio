@@ -1,5 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Usuario } from './usuario';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,6 @@ import { Usuario } from './usuario';
 export class AppComponent {
   title = 'Sistema';
 
+  constructor(private _http: HttpClientModule){ }  
 
 }

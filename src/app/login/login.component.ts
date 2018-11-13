@@ -14,29 +14,33 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   
 
-  usuarioModel = new Usuario('','','',0,'',true);
+  usuarioModel = new Usuario('','','',0,'',true); 
   
+  public _usuario = this._usuarioService.getApi().subscribe(data => this._usuario = data);
 
 
   constructor(private _usuarioService: UsuarioService, private router: Router) {   }
 
   ngOnInit() {  }
 
+  api(){
+    
+    return this._usuarioService.getApi();
+  }
+
   onSubmit(){    
     
-    let LoginForm = this.usuarioModel;
+    let LoginForm = this.usuarioModel;        
     
-    let usuarioService = this._usuarioService.getUsuario();
-    
-    
-  if( usuarioService.find(x => x.id == LoginForm.id) && usuarioService.find(x => x.senha == LoginForm.senha)){
+  if( this._usuario.find(x => x.id == LoginForm.id) && this._usuario.find(x => x.senha == LoginForm.senha)){
       this.router.navigate(['../Consulta']);
-      this._usuarioService.setCadastrar(LoginForm.id,LoginForm.nome,LoginForm.email,LoginForm.idade,LoginForm.senha);
+      
+      //this._usuarioService.setCadastrar(LoginForm.id,LoginForm.nome,LoginForm.email,LoginForm.idade,LoginForm.senha);
       console.log("OK");
 
     }else{
-      console.log((this._usuarioService.getUsuario()));
-      return alert('Erro');
+      
+      return alert('Login ou senha Incorretos');
     }
 
   }

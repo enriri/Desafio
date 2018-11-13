@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-consulta',
@@ -10,11 +13,11 @@ export class ConsultaComponent implements OnInit {
 
   public usuario = [];
 
-  constructor(private _usuarioService: UsuarioService) { }
+  constructor(private _usuarioService: UsuarioService, private _httpClientModule: HttpClientModule) { }
 
   ngOnInit() {
-    this.usuario = this._usuarioService.getUsuario();
-    console.log(this._usuarioService.getUsuario());
+    this._usuarioService.getApi().subscribe(data => this.usuario = data);
+    
   }
   
 }

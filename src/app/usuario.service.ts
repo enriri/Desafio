@@ -1,40 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from './usuario';
-import { stringify } from '@angular/core/src/render3/util';
+import { IUsuario } from './listaUsuario';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class UsuarioService  {
+export class UsuarioService  {  
   
-  _url = '';
+  _url = '/assets/data/list.json';
 
-  constructor(private _http: HttpClient) {
+  public listUsuario = this._http.get<IUsuario[]>(this._url).subscribe(data => this.listUsuario = data);
 
+  constructor(private _http: HttpClient) { }
 
+  
+
+   getApi(): Observable<IUsuario[]>{
+
+    return this._http.get<IUsuario[]>(this._url); 
   }
-
-  listUsuarios = [
-    
-    {id: "1", nome: "Enrique", email: "abc", idade: 22, senha: "123", ativo: true},
-    {id: "admin", nome: "Admin", email: "abc", idade: 99, senha: "admin", ativo: true}
-    
-    
-   ];
 
    setCadastrar(a: string, b: string, c: string, d: number, e: string){
       
-      return this.listUsuarios.push({id: a ,nome: b, email: c , idade: d, senha: e ,ativo:true});
+      return this.listUsuario.push(a,b,c,d,e,true);
       
    }
-
-   getUsuario(){
-         
-      return this.listUsuarios;
-   }
-
 
 
 /*   enroll(uer: Usuario){

@@ -8,12 +8,6 @@ export class Usuario {
         public ativo: boolean,
     ) {}
         
-    listUsuarios = [
-    
-        {id: "1", nome: "Enrique", email: "abc", idade: 22, senha: "123", ativo: true},
-        {id: "admin", nome: "Admin", email: "abc", idade: 99, senha: "admin", ativo: true}
-        
-    ];
 
       getUsuario(){
         

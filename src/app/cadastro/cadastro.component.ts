@@ -26,10 +26,9 @@ export class CadastroComponent implements OnInit {
     
     let UsuarioService = this._usuarioService;
     
-    this._usuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);    
+    UsuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);    
 
-    console.log(CadastroForm);
-    console.log(UsuarioService.getUsuario());
+    console.log(CadastroForm);    
     
     return this.router.navigate(['../Consulta']);
     /*this._usuarioService.enroll(this.usuarioModel)
