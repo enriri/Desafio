@@ -7,33 +7,28 @@
 	  <h2 class="container">Cadastro</h2>
 	  
 	  	<div class="form-group">
-	    	<label for="input_id">ID</label>
-	    	<input [(ngModel)] = "usuarioModel.id" name="input_id" type="text" class="form-control" id="input_id" placeholder="">
-	  	</div>
-
-	  	<div class="form-group">
-	    	<label for="input_login">Login</label>
-	    	<input ngModel name="input_login" type="text" class="form-control" id="input_login" placeholder="">
+	    	<label for="input_id">Login</label>
+	    	<input [(ngModel)] = "usuarioModel.id" name="input_id" type="text" class="form-control" id="input_login" placeholder="">
       	</div>
             
       	<div class="form-group">
 			<label for="input_email">E-mail</label>
-			<input ngModel name="input_email"  type="email" class="form-control" id="input_email" placeholder="">
+			<input [(ngModel)] = "usuarioModel.email" name="input_email"  type="email" class="form-control" id="input_email" placeholder="">
 	 	</div>
 
 	  	<div class="form-group">
 	    	<label for="input_pass">Senha</label>
-	    	<input ngModel name="input_pass"  type="password" class="form-control" id="input_pass" placeholder="">
+	    	<input [(ngModel)] = "usuarioModel.senha" name="input_pass"  type="password" class="form-control" id="input_pass" placeholder="">
       	</div>
       
       	<div class="form-group">
 	    	<label for="input_nome">Nome</label>
-	    	<input ngModel name="input_nome"  type="text" class="form-control" id="input_nome" placeholder="">
+	    	<input [(ngModel)] = "usuarioModel.nome" name="input_nome"  type="text" class="form-control" id="input_nome" placeholder="">
       	</div>
       
       	<div class="form-group">
 	    	<label for="input_idade">Idade</label>
-	    	<input ngModel name="input_idade"  type="number" class="form-control" id="input_idade" placeholder="">
+	    	<input [(ngModel)] = "usuarioModel.idade" name="input_idade"  type="number" class="form-control" id="input_idade" placeholder="">
       	</div>      
       
 

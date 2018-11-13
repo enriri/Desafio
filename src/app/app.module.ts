@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 
 import { UsuarioService } from './usuario.service';
 import { ConsultaComponent } from './consulta/consulta.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+
 
 
 
@@ -17,8 +19,8 @@ import { ConsultaComponent } from './consulta/consulta.component';
     AppComponent,
     LoginComponent,
     routingComponents,
-    ConsultaComponent
-       
+    ConsultaComponent,
+    CadastroComponent       
     
   ],
   imports: [
@@ -26,7 +28,8 @@ import { ConsultaComponent } from './consulta/consulta.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule    
+    HttpClientModule
+        
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]
