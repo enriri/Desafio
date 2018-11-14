@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 export class UsuarioService  {  
   
+  //_url = '/assets/data/list.json';
   _url = '/assets/data/list.json';
 
   public listUsuario = this._http.get<IUsuario[]>(this._url).subscribe(data => this.listUsuario = data);
@@ -20,12 +21,26 @@ export class UsuarioService  {
 
    getApi(): Observable<IUsuario[]>{
 
-    return this._http.get<IUsuario[]>(this._url); 
-  }
+    return this._http.get<IUsuario[]>(`https://private-41481-enriri.apiary-mock.com/usuarios`);     
+  } 
 
-   setCadastrar(a: string, b: string, c: string, d: number, e: string){
+   setCadastrar(id: string, nome: string, email: string, idade: number, senha: string){
       
-      return this.listUsuario.push(a,b,c,d,e,true);
+
+    return this._http.post<IUsuario[]>('https://private-41481-enriri.apiary-mock.com/usuarios',{
+      id: id,
+      nome: nome,
+      email: email,
+      idade: idade,
+      senha: senha,
+      ativo: true
+
+
+    }).subscribe((data:any) => {
+      console.log(data);
+    });
+    
+    //return this.listUsuario.push(a,b,c,d,e,true);
       
    }
 

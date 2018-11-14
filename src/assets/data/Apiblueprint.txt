@@ -1,0 +1,87 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# enriri 
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Lista [/usuarios]
+
+
+### Lista Usuarios [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+            
+            "id": "1", 
+            "nome": "Enrique", 
+            "email": "abc",
+            "idade": 22, 
+            "senha": "123",
+            "ativo": true
+            
+            },
+            
+            {
+            
+            "id": "admin",
+            "nome": "Admin",
+            "email": "abc",
+            "idade": 99, 
+            "senha": "admin", 
+            "ativo": true
+            
+            }    
+        
+        ]
+
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++Paremters
+    +
+
++ Request (application/json)
+
+        {
+             "id": "admin",
+            "nome": "Admin",
+            "email": "abc",
+            "idade": 99, 
+            "senha": "admin", 
+            "ativo": true
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }

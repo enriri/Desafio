@@ -16,8 +16,9 @@ export class ConsultaComponent implements OnInit {
   constructor(private _usuarioService: UsuarioService, private _httpClientModule: HttpClientModule) { }
 
   ngOnInit() {
-    this._usuarioService.getApi().subscribe(data => this.usuario = data);
     
+    this._usuarioService.getApi().subscribe(data => this.usuario = data);
+        
   }
   
 }
