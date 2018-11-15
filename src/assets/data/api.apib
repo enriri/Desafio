@@ -1,0 +1,77 @@
+FORMAT: 1A
+HOST: http://enriri.apiblueprint.org/
+
+# enriri 
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Lista [/usuarios]
+
+### Usuarios [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+            
+            "id": "1", 
+            "nome": "Enrique", 
+            "email": "abc",
+            "idade": 22, 
+            "senha": "123",
+            "ativo": true
+            
+            },
+            
+            {
+            
+            "id": "admin",
+            "nome": "Admin",
+            "email": "abc",
+            "idade": 99, 
+            "senha": "admin", 
+            "ativo": true
+            
+            }    
+        
+        ]
+
+
++ Response 404 (application/json)  
+        
+        [
+            {
+                "question": "Erro"                                                
+            }
+        ]            
+            
+
+## Cadastrar [/cadastrar]
+
+### Cadastrar [POST]
+
++ Request (application/json)
+    
+    +Headers
+
+            Accept: application/json
+            Content-Type: application/json
+            
+    + Attributes (Usuario)
+
+
++ Response 201 (application/json)
+    [
+       {
+           "status": "Recebido"
+       } 
+    ]
+
+# Data Structures
+
+## Usuario (object)
++ id (required, string)
++ nome (required, string)
++ email (required, string)
++ idade (required, number)
++ senha (required, string)

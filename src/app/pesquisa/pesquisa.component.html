@@ -1,14 +1,27 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>
+          <h2>Pesquisar usuario</h2>
+        </th>
+      </tr>
+    </thead>
+  </table>
+
+<form #PesquisaForm="ngForm" (ngSubmit)="onSearch()">    
+
+    <div class="input-group mb-3" id="campoPesquisa">
+        <input [(ngModel)] = "usuarioModel.id" name="input_id" type="text" class="form-control" placeholder="Pesquisar...">
+        
+        <div class="input-group-append">          
+          <button class="btn btn-primary" type="button">Pesquisar</button>
+        </div>
+      </div>
+</form>
+
 <div style="height: 10px"></div>
 
-<table id="title_grid" class="table">
-  <thead>
-    <tr>
-      <th>
-        <h2>Consulta</h2>
-      </th>
-    </tr>
-  </thead>
-</table>
 <table id="grid" class="table table-striped">
     <thead>
       <tr>

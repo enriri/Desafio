@@ -1,9 +1,0 @@
-
-    + Attributes
-        + id (required, string)
-        + nome (required, string)
-        + email (required, string)
-        + idade (required, number)
-        + senha (required, string)
-
-    

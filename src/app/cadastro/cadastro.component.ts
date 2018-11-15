@@ -12,13 +12,9 @@ export class CadastroComponent implements OnInit {
   
   usuarioModel = new Usuario('','','',0,'',true);        
     
-  constructor(private _usuarioService: UsuarioService, private router:Router) {   }
+  constructor(private _usuarioService: UsuarioService, private router:Router) { }
 
-  
-
-  ngOnInit() {
-        
-  }
+  ngOnInit() { }
 
   onSubmit(){    
     

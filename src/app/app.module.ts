@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { UsuarioService } from './usuario.service';
 import { ConsultaComponent } from './consulta/consulta.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
 @NgModule({
   
@@ -19,7 +20,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     LoginComponent,
     routingComponents,
     ConsultaComponent,
-    CadastroComponent       
+    CadastroComponent,
+    PesquisaComponent       
     
   ],
   imports: [

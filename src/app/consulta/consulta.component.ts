@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
-import { HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
+
 export class ConsultaComponent implements OnInit {
 
   public usuario = [];
 
-  constructor(private _usuarioService: UsuarioService, private _httpClientModule: HttpClientModule) { }
+  constructor(private _usuarioService: UsuarioService, private _app: AppComponent) { }
 
   ngOnInit() {
-    
-    this._usuarioService.getApi().subscribe(data => this.usuario = data);
+            
+   
+   this._usuarioService.getListaUsuario().subscribe(data => this.usuario = data);
         
   }
   

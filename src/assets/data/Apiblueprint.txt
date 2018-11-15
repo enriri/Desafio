@@ -15,9 +15,9 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         [
             {
             
-            "id": "1", 
+            "id": "enriri", 
             "nome": "Enrique", 
-            "email": "abc",
+            "email": "enriquepec@yahoo.com.br",
             "idade": 22, 
             "senha": "123",
             "ativo": true
@@ -28,12 +28,34 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             
             "id": "admin",
             "nome": "Admin",
-            "email": "abc",
-            "idade": 99, 
+            "email": "-",
+            "idade": 1, 
             "senha": "admin", 
             "ativo": true
             
-            }    
+            },
+             
+            {
+            
+            "id": "jotston",
+            "nome": "Joatiston",
+            "email": "Joatiston@provider.com.br",
+            "idade": 34, 
+            "senha": "123", 
+            "ativo": false
+            
+            },
+
+            {
+            
+            "id": "dandiercrib",
+            "nome": "Raphael Jose Bernado Chartouni",
+            "email": "raphaeljbc@provider.com.br",
+            "idade": 3, 
+            "senha": "123", 
+            "ativo": false
+            
+            }
         
         ]
 

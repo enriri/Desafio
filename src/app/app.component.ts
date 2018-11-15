@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Sistema';
 
-  constructor(private _http: HttpClientModule){ }  
+  constructor(){ }    
 
 }

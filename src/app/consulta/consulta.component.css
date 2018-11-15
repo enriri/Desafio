@@ -1,6 +1,19 @@
-#grid{
-    max-width: 600px;
-    background-color: #e9ecef;
+#grid, #title_grid{
+    margin: auto;
+    max-width: 65% !important;    
+}
+
+td , tr{
+
+    border: 1px solid white;
     border-radius: .25rem;
-    
+}
+
+tr{
+    max-width: 100%;
+}
+
+td{
+    width: 20%;
+    word-break: break-all;
 }

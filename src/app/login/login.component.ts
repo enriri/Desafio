@@ -12,21 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    
-  //usuarioModel: Usuario;
+      
   usuarioModel = new Usuario('','','',0,'',true); 
   
-  public _usuario = this._usuarioService.getApi().subscribe(data => this._usuario = data);
-
+  public _usuario = this._usuarioService.getListaUsuario().subscribe(data => this._usuario = data);
 
   constructor(private _usuarioService: UsuarioService, private router: Router) {   }
 
-  ngOnInit() {  }
-
-  api(){
-    
-    return this._usuarioService.getApi();
-  }
+  ngOnInit() { }
 
   onSubmit(){    
     
