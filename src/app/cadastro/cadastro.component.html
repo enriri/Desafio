@@ -1,39 +1,47 @@
 <div>
 	<div style="height: 10px"></div>	
 
-	<form #cadastroForm="ngForm" (ngSubmit)="onSubmit()" class="container ">		
+	<form #cadastroForm="ngForm" (ngSubmit)="onSubmit(cadastroForm)" class="container ">		
 			
 		<div style="height: 8px"></div>
 	  <h2 class="container">Cadastro</h2>
 	  
 	  	<div class="form-group">
 	    	<label for="input_id">Login</label>
-	    	<input [(ngModel)] = "usuarioModel.id" name="input_id" type="text" class="form-control" id="input_login" placeholder="">
+			<input [(ngModel)] = "usuarioModel.id" required #Usuarioid="ngModel" name="input_id" type="text" [class.is-invalid]="Usuarioid.invalid && Usuarioid.touched" class="form-control" placeholder="">
+			<small class="text-danger"[class.d-none]="Usuarioid.valid || Usuarioid.untouched">O login é obrigatorio</small>
       	</div>
             
       	<div class="form-group">
 			<label for="input_email">E-mail</label>
-			<input [(ngModel)] = "usuarioModel.email" name="input_email"  type="email" class="form-control" id="input_email" placeholder="">
+			<input [(ngModel)] = "usuarioModel.email" required name="input_email" #Email="ngModel" [email]="true" [class.is-invalid]="Email.invalid && Email.touched" type="email" class="form-control" id="input_email" placeholder="">
+			<small class="text-danger"[class.d-none]="Email.valid || Email.untouched">O E-mail digitado é invalido.</small>
 	 	</div>
 
 	  	<div class="form-group">
 	    	<label for="input_pass">Senha</label>
-	    	<input [(ngModel)] = "usuarioModel.senha" name="input_pass"  type="password" class="form-control" id="input_pass" placeholder="">
+			<input [(ngModel)] = "usuarioModel.senha" required name="input_pass" #Senha="ngModel" type="password" [class.is-invalid]="Senha.invalid && Senha.touched" class="form-control" id="input_pass" placeholder="">
+			<small class="text-danger"[class.d-none]="Senha.value.length >= 5 || Senha.untouched">A senha é obrigatoria e deve conter pelomenos 5 caracteres</small>
+			
       	</div>
       
       	<div class="form-group">
 	    	<label for="input_nome">Nome</label>
-	    	<input [(ngModel)] = "usuarioModel.nome" name="input_nome"  type="text" class="form-control" id="input_nome" placeholder="">
+			<input [(ngModel)] = "usuarioModel.nome" required name="input_nome" #Nome="ngModel" type="text" [class.is-invalid]="Nome.invalid && Nome.touched" class="form-control" id="input_nome" placeholder="">
+			<small class="text-danger"[class.d-none]="Nome.valid || Nome.untouched">O nome é obrigatorio</small>
       	</div>
       
       	<div class="form-group">
 	    	<label for="input_idade">Idade</label>
-	    	<input [(ngModel)] = "usuarioModel.idade" name="input_idade"  type="number" class="form-control" id="input_idade" placeholder="">
-      	</div>      
+			<input [(ngModel)] = "usuarioModel.idade" required #Idade="ngModel" name="input_idade" [class.is-invalid]="Idade.invalid && Idade.touched" type="number" class="form-control" id="input_idade" placeholder="">
+			<small class="text-danger"[class.d-none]="Idade.valid">Coloque sua idade.</small>
+		  </div>      
+		  
       
 
-	  	<button type="submit" class="btn btn-primary">Enviar</button>	  
-        <div style="height: 10px"></div>
+	  	<button type="submit" class="btn btn-primary" >Enviar</button>	  
+		<div style="height: 10px"></div>
+		
 	</form>			
 			
 </div>	

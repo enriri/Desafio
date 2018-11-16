@@ -1,14 +1,5 @@
 <div style="height: 10px"></div>
 
-<table id="title_grid" class="table">
-  <thead>
-    <tr>
-      <th>
-        <h2>Consulta</h2>
-      </th>
-    </tr>
-  </thead>
-</table>
 <table id="grid" class="table table-striped">
     <thead>
       <tr>
@@ -22,7 +13,7 @@
     <tbody>        
         <tr scope="row" *ngFor="let user of usuario">          
             <td class="col-sm">
-             {{user.id}}
+              {{user.id}}
             </td>
             <td class="col-sm">
               {{user.nome}}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
-import { UsuarioService } from '../usuario.service';
+
 
 @Component({
   selector: 'app-pesquisa',
@@ -12,23 +12,17 @@ export class PesquisaComponent implements OnInit {
   
   usuarioModel = new Usuario('','','',0,'',true); 
 
-  public usuario = [];
+  PartialConsultar = false;
 
-  public _usuario = this._usuarioService.getListaUsuario().subscribe(data => this._usuario = data);
-
-  constructor(private _usuarioService: UsuarioService) { }
+  constructor() { }
 
   ngOnInit() { }
 
 
-  onSearch(){
-
-    let PesquisaForm = this.usuarioModel;
-
-    this.usuario = this._usuarioService.getListaUsuarioPesquisa(PesquisaForm); // pesquisa o objeto que contem o id do campo procurar no html.
-
-    return console.log(this.usuario);
-            
+  onSearch(){    
+    
+    this.PartialConsultar = false;
+    this.PartialConsultar = !this.PartialConsultar;            
   }
 
 }

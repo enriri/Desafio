@@ -26,12 +26,11 @@ export class UsuarioService  {
   
   getListaUsuario(): Observable<IUsuario[]>{
 
-    return this._http.get<IUsuario[]>(`https://private-41481-enriri.apiary-mock.com/usuarios`);  
+    return this._http.get<IUsuario[]>(`https://private-41481-enriri.apiary-mock.com/usuarios`);
   } 
 
    setCadastrar(id: string, nome: string, email: string, idade: number, senha: string){
       
-
     return this._http.post<IUsuario[]>(`https://private-41481-enriri.apiary-mock.com/cadastrar`,{
       id: id,
       nome: nome,
@@ -40,8 +39,7 @@ export class UsuarioService  {
       senha: senha,
       ativo: true
 
-
-    }).subscribe((data:any) => {
+    }).subscribe((data:any) => {      
       console.log(data);
     });      
       

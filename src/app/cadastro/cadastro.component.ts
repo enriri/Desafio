@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
-import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -12,26 +13,23 @@ export class CadastroComponent implements OnInit {
   
   usuarioModel = new Usuario('','','',0,'',true);        
     
-  constructor(private _usuarioService: UsuarioService, private router:Router) { }
+  constructor(private _usuarioService: UsuarioService, private _app: AppComponent) { }
 
   ngOnInit() { }
 
-  onSubmit(){    
-    
-    let CadastroForm = this.usuarioModel; 
+  onSubmit(CadastroForm){    
     
     let UsuarioService = this._usuarioService;
     
-    UsuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);    
+    console.log(CadastroForm);
 
-    //console.log(CadastroForm);    
-    
-    //return this.router.navigate(['../Consulta']);
-    /*this._usuarioService.enroll(this.usuarioModel)
-      .subscribe(
-        data => console.log('OK !',data),
-        error => console.error('Error!', error)
-    )*/
+    if(CadastroForm.invalid){
+      alert("Formulário contém campos invalidos");
+    }else{
+      UsuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);
+      alert("Cadastro realizado");
+      this._app.appLogin();
+    }  
 
   }
 

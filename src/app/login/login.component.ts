@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+
 
 
 
@@ -17,18 +19,18 @@ export class LoginComponent implements OnInit {
   
   public _usuario = this._usuarioService.getListaUsuario().subscribe(data => this._usuario = data);
 
-  constructor(private _usuarioService: UsuarioService, private router: Router) {   }
+  constructor(private _usuarioService: UsuarioService, private router: Router, private _appComponent: AppComponent) {   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+   }
 
-  onSubmit(){    
-    
+  onSubmit(){            
     let LoginForm = this.usuarioModel;        
     
   if( this._usuario.find(x => x.id == LoginForm.id) && this._usuario.find(x => x.senha == LoginForm.senha)){
-      this.router.navigate(['../Consulta']);
+    
+    this._appComponent.appPesquisar();
       
-      this._usuarioService.setCadastrar(LoginForm.id,LoginForm.nome,LoginForm.email,LoginForm.idade,LoginForm.senha);
       console.log("OK");
 
     }else{

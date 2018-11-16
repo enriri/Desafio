@@ -1,3 +1,6 @@
+<ng-template #consultaView>
+    <app-consulta></app-consulta>
+</ng-template>
 
 <table class="table">
     <thead>
@@ -9,50 +12,15 @@
     </thead>
   </table>
 
-<form #PesquisaForm="ngForm" (ngSubmit)="onSearch()">    
+<form #PesquisaForm="ngForm" (ngSubmit)="onSearch(PesquisaForm)">    
 
     <div class="input-group mb-3" id="campoPesquisa">
         <input [(ngModel)] = "usuarioModel.id" name="input_id" type="text" class="form-control" placeholder="Pesquisar...">
         
         <div class="input-group-append">          
-          <button class="btn btn-primary" type="button">Pesquisar</button>
+          <button class="btn btn-primary" (click)="onSearch()"type="button">Pesquisar</button>
         </div>
       </div>
 </form>
 
-<div style="height: 10px"></div>
-
-<table id="grid" class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Email</th>
-        <th scope="col">Ativo</th>
-      </tr>
-    </thead>
-    <tbody>        
-        <tr scope="row" *ngFor="let user of usuario">          
-            <td class="col-sm">
-             {{user.id}}
-            </td>
-            <td class="col-sm">
-              {{user.nome}}
-            </td>
-            <td class="col-sm">
-              {{user.idade}}
-            </td>
-            <td class="col-sm">
-              {{user.email}}
-            </td>
-            <td class="col-sm" *ngIf="user.ativo == true">
-              Ativo
-            </td>
-            <td class="col-sm" *ngIf="user.ativo == false">
-              Desativado
-            </td>   
-        </tr>
-    </tbody>
-    
-</table>
+<div *ngIf="PartialConsultar; then consultaView"></div>

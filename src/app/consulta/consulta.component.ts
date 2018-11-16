@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
-import { AppComponent } from '../app.component';
+import { Usuario } from '../usuario';
+
 
 @Component({
   selector: 'app-consulta',
@@ -10,15 +11,23 @@ import { AppComponent } from '../app.component';
 
 export class ConsultaComponent implements OnInit {
 
-  public usuario = [];
+  public usuario = this._usuarioService.getListaUsuario().subscribe(data => this.usuario = data); //Array de objeto
+  
+  usuarioModel = new Usuario('','','',0,'',true); // Modelo do Usuario
+  
+  constructor(private _usuarioService: UsuarioService) { }
 
-  constructor(private _usuarioService: UsuarioService, private _app: AppComponent) { }
-
-  ngOnInit() {
-            
-   
-   this._usuarioService.getListaUsuario().subscribe(data => this.usuario = data);
-        
+  ngOnInit() {    
+    
   }
   
+  pesquisaConsulta(campoPesquisa){        
+    
+    if(this.usuario.find(x => x.id == campoPesquisa)){
+      console.log("ok true");
+    }
+    
+  }
+  
+
 }

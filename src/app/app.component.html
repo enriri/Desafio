@@ -1,6 +1,45 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<ng-template #loginView>
+    <app-login></app-login>
+</ng-template>    
+<ng-template #consultaView>
+    <app-consulta ></app-consulta>
+</ng-template>
+<ng-template #cadastroView>
+    <app-cadastro ></app-cadastro>
+</ng-template>
+<ng-template #pesquisarView>
+        <app-pesquisa ></app-pesquisa>
+</ng-template>
 
-<app-navbar></app-navbar>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="../" style="color: ghostwhite">Desafio_Log</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" (click)="appLogin()">Login <span class="sr-only">(current)</span></a>          
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" (click)="appCadastrar()">Cadastrar</a>
+        </li>        
+  
+      </ul>
+         
+    </div>
+  </nav>
+
+  <div *ngIf="PartialConsultar; then consultaView"></div>
+  <div *ngIf="PartialPesquisar; then pesquisarView"></div>
+  <div *ngIf="PartialCadastrar; then cadastroView"></div>
+  <div *ngIf="PartialLogin; then loginView"></div>
 
 <router-outlet></router-outlet>
 
