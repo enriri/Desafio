@@ -20,13 +20,11 @@ export class AppComponent {
   PartialLogin = true;
   PartialCadastrar = false;
   PartialPesquisar = false;
-  PartialConsultar = false;
 
   falseAll(){
     this.PartialLogin = false;
     this.PartialCadastrar = false;
-    this.PartialPesquisar = false; 
-    this.PartialConsultar = false;
+    this.PartialPesquisar = false;     
   }
 
   appLogin(){
@@ -40,10 +38,6 @@ export class AppComponent {
     this.PartialCadastrar = true;
   }
 
-  appConsultar(){
-    this.falseAll();
-    this.PartialConsultar = true;
-  }
 
   appPesquisar(){
     this.falseAll();

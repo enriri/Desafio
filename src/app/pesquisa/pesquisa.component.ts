@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
+import { UsuarioService } from '../usuario.service';
 
 
 @Component({
@@ -10,19 +11,23 @@ import { Usuario } from '../usuario';
 
 export class PesquisaComponent implements OnInit {
   
-  usuarioModel = new Usuario('','','',0,'',true); 
+  public usuario = this._usuarioService.getListaUsuario().subscribe(data => this.usuario = data); //Array de objeto
+  
+  usuarioModel = new Usuario('','','',0,'',true);
 
   PartialConsultar = false;
 
-  constructor() { }
+  constructor(private _usuarioService: UsuarioService) { }
 
   ngOnInit() { }
 
 
-  onSearch(){    
+  onSearch(campoPesquisa){    
+    let userL = []
+     userL = this.usuario.find(x => x.id == campoPesquisa);
+    console.log(campoPesquisa);
     
-    this.PartialConsultar = false;
-    this.PartialConsultar = !this.PartialConsultar;            
+                  
   }
 
 }

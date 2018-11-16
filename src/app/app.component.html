@@ -2,9 +2,6 @@
 <ng-template #loginView>
     <app-login></app-login>
 </ng-template>    
-<ng-template #consultaView>
-    <app-consulta ></app-consulta>
-</ng-template>
 <ng-template #cadastroView>
     <app-cadastro ></app-cadastro>
 </ng-template>
@@ -45,9 +42,7 @@
 	</button>
 </div>
 
-
-
-  <div *ngIf="PartialConsultar; then consultaView"></div>
+  
   <div *ngIf="PartialPesquisar; then pesquisarView"></div>
   <div *ngIf="PartialCadastrar; then cadastroView"></div>
   <div *ngIf="PartialLogin; then loginView"></div>

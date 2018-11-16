@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 import { UsuarioService } from './usuario.service';
-import { ConsultaComponent } from './consulta/consulta.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
@@ -18,8 +17,7 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    routingComponents,
-    ConsultaComponent,
+    routingComponents,    
     CadastroComponent,
     PesquisaComponent       
     
