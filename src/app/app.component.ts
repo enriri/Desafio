@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,9 +9,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Sistema';
+  title = 'Sistema';  
 
-  constructor(){ }    
+  constructor(){ }      
+
+  ngOnInit(){
+    $("#sucess").hide();
+  }
 
   PartialLogin = true;
   PartialCadastrar = false;

@@ -15,19 +15,20 @@ export class CadastroComponent implements OnInit {
     
   constructor(private _usuarioService: UsuarioService, private _app: AppComponent) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    $("#Invalido").hide();
+  }
+   
 
-  onSubmit(CadastroForm){    
+  onSubmit(CadastroForm, CadastroSenha){    
     
-    let UsuarioService = this._usuarioService;
-    
-    console.log(CadastroForm);
+    let UsuarioService = this._usuarioService;            
 
-    if(CadastroForm.invalid){
-      alert("Formulário contém campos invalidos");
+    if(CadastroForm.invalid || CadastroSenha < 5){
+      $("#Invalido").show();
     }else{
-      UsuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);
-      alert("Cadastro realizado");
+      UsuarioService.setCadastrar(CadastroForm.id,CadastroForm.nome,CadastroForm.email,CadastroForm.idade,CadastroForm.senha);      
+      $("#sucess").show();
       this._app.appLogin();
     }  
 
